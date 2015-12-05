@@ -20,21 +20,21 @@ sudo apt-get -y install apt-mirror
 
 - Tạo thư mục chứa các package của distro 
 ```sh
-sudo mkdir /myrepo
+sudo mkdir /opt/ubuntu
 ```
 
-- Tạo file /etc/apt/mirror.list
+- Mở file /etc/apt/mirror.list
 ```sh
 sudo vi /etc/apt/mirror.list
 ```
 
-- Khai báo cho file vừa tạo nội dung như sau. Chú ý đường dẫn tới thư mục đã tạo
+- Khai báo cho file vừa tạo nội dung như sau. Chú ý đường dẫn tới thư mục đã tạo (trong ubuntu 14.04-3 nằm ở dòng số 3)
 ```sh
 ############# config ##################
 #
 # set base_path /var/spool/apt-mirror
 
-set base_path /myrepo
+set base_path /opt/ubuntu
 
 #
 # set mirror_path $base_path/mirror
@@ -69,7 +69,21 @@ clean http://archive.ubuntu.com/ubuntu
 sudo apt-mirror
 ```
 
+- Sau khi thực hiện lệnh trên, máy sẽ download các package từ internet về và đặt tại thư mục /opt/ubuntu. Có thể kiểm tra dung lượng thư mục này bằng lệnh `du -sch` và xem các thư mục con bằng lệnh `ls /opt/ubuntu`
 
+```sh
+cd /opt/ubuntu
+du -shc
+
+hoặc 
+
+ls /opt/ubuntu
+```
+
+- Tạo liên kết tới thư mục chứa các package của repos 
+```sh
+đang tiếp tục viết
+```
 
 
 #### Link tham khảo

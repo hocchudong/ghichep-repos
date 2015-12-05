@@ -69,6 +69,12 @@ clean http://archive.ubuntu.com/ubuntu
 sudo apt-mirror
 ```
 
+
+- Thiết lập crontab để download định kỳ các package mới nhất
+```sh
+đang update
+```
+
 - Sau khi thực hiện lệnh trên, máy sẽ download các package từ internet về và đặt tại thư mục /opt/ubuntu. Có thể kiểm tra dung lượng thư mục này bằng lệnh `du -sch` và xem các thư mục con bằng lệnh `ls /opt/ubuntu`
 
 ```sh
@@ -80,9 +86,14 @@ hoặc
 ls /opt/ubuntu
 ```
 
-- Tạo liên kết tới thư mục chứa các package của repos 
+- Tạo thư mục `/var/www/html/ubuntu`
 ```sh
-đang tiếp tục viết
+mkdir /var/www/html/ubuntu
+```
+
+- Tạo liên kết từ thư mục chứa package tới thư mục vừa tạo ở trên
+```sh
+sudo ln -s /opt/ubuntu /var/www/html/ubuntu
 ```
 
 

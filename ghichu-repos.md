@@ -10,12 +10,12 @@
 
 - Cài Apache
 ```sh
-sudo apt-get install apache2
+sudo apt-get -y install apache2
 ```
 
 - Cài `apt-mirror`
 ```sh
-sudo apt-get install apt-mirror
+sudo apt-get -y install apt-mirror
 ```
 
 - Tạo thư mục chứa các package của distro 
@@ -63,6 +63,12 @@ deb-src http://archive.ubuntu.com/ubuntu trusty-updates main restricted universe
 
 clean http://archive.ubuntu.com/ubuntu
 ````
+
+- Chạy lệnh dưới để bắt đầu download các package cho distro
+```sh
+sudo apt-mirror
+```
+
 
 
 

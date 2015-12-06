@@ -93,7 +93,8 @@ mkdir /var/www/html/ubuntu
 
 - Tạo liên kết từ thư mục chứa package tới thư mục vừa tạo ở trên
 ```sh
-sudo ln -s /opt/ubuntu /var/www/html/ubuntu
+sudo ln -s /opt/ubuntu/mirror/archive.ubuntu.com/ubuntu/ ubuntu
+
 ```
 
 

@@ -20,7 +20,7 @@ sudo apt-get -y install apt-mirror
 
 - Tạo thư mục chứa các package của distro 
 ```sh
-sudo mkdir /opt/ubuntu
+sudo mkdir /linoxide
 ```
 
 - Mở file /etc/apt/mirror.list
@@ -34,7 +34,7 @@ sudo vi /etc/apt/mirror.list
 #
 # set base_path /var/spool/apt-mirror
 
-set base_path /opt/ubuntu
+set base_path /linoxide
 
 #
 # set mirror_path $base_path/mirror
@@ -52,6 +52,12 @@ set _tilde 0
 deb http://archive.ubuntu.com/ubuntu trusty main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse
+
+### Danh cho Ubuntu 14.04 32 bit 
+deb-i386 http://archive.ubuntu.com/ubuntu trusty main restricted universe multiverse
+deb-i386 http://archive.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
+deb-i386 http://archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse
+
 #deb http://archive.ubuntu.com/ubuntu trusty-proposed main restricted universe multiverse
 #deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse
 
@@ -60,7 +66,6 @@ deb-src http://archive.ubuntu.com/ubuntu trusty-security main restricted univers
 deb-src http://archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse
 #deb-src http://archive.ubuntu.com/ubuntu trusty-proposed main restricted universe multiverse
 #deb-src http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse
-
 clean http://archive.ubuntu.com/ubuntu
 ````
 
@@ -75,30 +80,44 @@ sudo apt-mirror
 đang update
 ```
 
-- Sau khi thực hiện lệnh trên, máy sẽ download các package từ internet về và đặt tại thư mục /opt/ubuntu. Có thể kiểm tra dung lượng thư mục này bằng lệnh `du -sch` và xem các thư mục con bằng lệnh `ls /opt/ubuntu`
+- Sau khi thực hiện lệnh trên, máy sẽ download các package từ internet về và đặt tại thư mục /linoxide. Có thể kiểm tra dung lượng thư mục này bằng lệnh `du -sch` và xem các thư mục con bằng lệnh `ls /linoxide`
 
 ```sh
-cd /opt/ubuntu
+cd /linoxide
 du -shc
 
 hoặc 
 
-ls /opt/ubuntu
-```
-
-- Tạo thư mục `/var/www/html/ubuntu`
-```sh
-mkdir /var/www/html/ubuntu
+ls /linoxide
 ```
 
 - Tạo liên kết từ thư mục chứa package tới thư mục vừa tạo ở trên
 ```sh
-sudo ln -s /opt/ubuntu/mirror/archive.ubuntu.com/ubuntu/ ubuntu
+sudo ln -s /linoxide/mirror/archive.ubuntu.com/ubuntu ubuntu
 
 ```
 
+- Cấu hình crontab để định kỳ tải package từ kho của ubuntu về
+- Sửa file `sudo vi /etc/cron.d/apt-mirror` và khai báo vào lúc 2AM hàng ngày thực hiện đồng bộ.
+
+```sh
+#
+# Regular cron jobs for the apt-mirror package
+#
+0 2 * * * apt-mirror /usr/bin/apt-mirror > /var/spool/apt-mirror/var/cron.log
+``
+
+
+- Trên client, xóa file gốc và tạo file mới `/etc/apt/sources.list` với nội dung dưới
+
+```sh
+deb http://172.16.69.238/ubuntu trusty universe
+deb http://172.16.69.238/ubuntu trusty main restricted
+deb http://172.16.69.238/ubuntu trusty-updates main restricted
+```
 
 #### Link tham khảo
-1. http://www.tecmint.com/setup-local-repositories-in-ubuntu/
-2. http://www.unixmen.com/setup-local-repository-in-ubuntu-15-04/
+
+1. http://www.unixmen.com/setup-local-repository-in-ubuntu-15-04/
+2. http://www.tecmint.com/setup-local-repositories-in-ubuntu/
 3. http://linoxide.com/ubuntu-how-to/setup-local-repository-ubuntu/

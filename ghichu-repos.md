@@ -107,7 +107,7 @@ sudo ln -s /linoxide/mirror/archive.ubuntu.com/ubuntu ubuntu
 0 2 * * * apt-mirror /usr/bin/apt-mirror > /var/spool/apt-mirror/var/cron.log
 ```
 
-
+### CLIENT
 - Trên client, xóa file gốc và tạo file mới `/etc/apt/sources.list` với nội dung dưới
 
 ```sh
@@ -116,8 +116,38 @@ deb http://172.16.69.238/ubuntu trusty main restricted
 deb http://172.16.69.238/ubuntu trusty-updates main restricted
 ```
 
+hoặc
+
+```sh
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
+rm /etc/apt/sources.list 
+cat << EOF > /etc/apt/sources.list 
+deb http://172.16.69.238/ubuntu trusty universe
+deb http://172.16.69.238/ubuntu trusty main restricted
+deb http://172.16.69.238/ubuntu trusty-updates main restricted
+EOF
+```
+
 #### Link tham khảo
 
 1. http://www.unixmen.com/setup-local-repository-in-ubuntu-15-04/
 2. http://www.tecmint.com/setup-local-repositories-in-ubuntu/
 3. http://linoxide.com/ubuntu-how-to/setup-local-repository-ubuntu/
+
+#### Nhật ký  thay đổi dung lượng thư mục repos
+09/12/2015: 182G
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

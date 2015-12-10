@@ -134,6 +134,34 @@ EOF
 2. http://www.tecmint.com/setup-local-repositories-in-ubuntu/
 3. http://linoxide.com/ubuntu-how-to/setup-local-repository-ubuntu/
 
+### Cách 2: Cài đặt APT-CACHE-NG
+#### Trên Server 
+- Cài đặt apache
+```sh
+apt-get -y install apache2
+```
+
+- Cài đặt apt-cache
+
+```sh
+apt-get -y install apt-cacher
+```
+
+- Có thể cấu hình dòng `allowed_hosts` trong file ` /etc/apt-cacher/apt-cacher.conf` để cho phép máy nào được sử dụng apt-cache
+
+##### Trên client 
+- Chạy dòng sau để khai báo repos
+```sh
+echo '"Acquire::http::Proxy "http://IP_CUA_MAY_APT_CACHE:3142";' >  /etc/apt/apt.conf.d/01proxy
+"
+```
+- Chạy lệnh `apt-get update` trước khi cài các gói phần mềm
+
+#### Phần quản trị
+- Truy cập vào web của máy chủ cài apt-cache theo link http://IP_MAY_CHU_APT_CACHE:3142
+
+
+
 #### Nhật ký  thay đổi dung lượng thư mục repos
 09/12/2015: 182G
 

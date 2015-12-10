@@ -5,7 +5,7 @@
 
 * [2. Repos sử dụng APT-CACHE-NG] (#apt-cache-ng)
  * [2.1 Cài đặt apt-cache-ng trên Server](#apt-cache-ng-server)
-
+ * [2.2 Khai báo trên client](#apt-cache-ng-client)
 
 
 #### Chú ý
@@ -162,7 +162,8 @@ apt-get -y install apt-cacher
 
 - Có thể cấu hình dòng `allowed_hosts` trong file ` /etc/apt-cacher/apt-cacher.conf` để cho phép máy nào được sử dụng apt-cache
 
-##### Trên client 
+<a name="apt-cache-ng-client"> </a> 
+#### 2.2. Trên client 
 - Chạy dòng sau để khai báo repos
 ```sh
 echo '"Acquire::http::Proxy "http://IP_CUA_MAY_APT_CACHE:3142";' >  /etc/apt/apt.conf.d/01proxy

@@ -157,7 +157,7 @@ apt-get -y install apache2
 - Cài đặt apt-cache
 
 ```sh
-apt-get -y install apt-cacher
+sudo apt-get install apt-cacher-ng
 ```
 
 - Có thể cấu hình dòng `allowed_hosts` trong file ` /etc/apt-cacher/apt-cacher.conf` để cho phép máy nào được sử dụng apt-cache
@@ -166,7 +166,11 @@ apt-get -y install apt-cacher
 #### 2.2. Trên client 
 - Chạy dòng sau để khai báo repos
 ```sh
-echo '"Acquire::http::Proxy "http://IP_CUA_MAY_APT_CACHE:3142";' >  /etc/apt/apt.conf.d/01proxy
+echo 'Acquire::http { Proxy "http://172.16.20.19:3142"; };' >  /etc/apt/apt.conf.d/01proxy
+
+Ví dụ
+
+echo 'Acquire::http { Proxy "http://172.16.20.19:3142"; };' >  /etc/apt/apt.conf.d/01proxy
 ```
 - Chạy lệnh `apt-get update` trước khi cài các gói phần mềm
 

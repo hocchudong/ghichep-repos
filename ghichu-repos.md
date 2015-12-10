@@ -153,7 +153,6 @@ apt-get -y install apt-cacher
 - Chạy dòng sau để khai báo repos
 ```sh
 echo '"Acquire::http::Proxy "http://IP_CUA_MAY_APT_CACHE:3142";' >  /etc/apt/apt.conf.d/01proxy
-"
 ```
 - Chạy lệnh `apt-get update` trước khi cài các gói phần mềm
 

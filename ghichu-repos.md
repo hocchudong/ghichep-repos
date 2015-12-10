@@ -1,9 +1,10 @@
 ﻿#### Các ghi chú trong khi setup repos
 
 ### Mục lục
-* [I. Repos sử dụng APT-MIRROR] (#apt-mirror)
+* [1. Repos sử dụng APT-MIRROR] (#apt-mirror)
 
-* [II. Repos sử dụng APT-CACHE-NG] (#apt-cache-ng)
+* [2. Repos sử dụng APT-CACHE-NG] (#apt-cache-ng)
+ * [2.1 Cài đặt apt-cache-ng trên Server](#apt-cache-ng-server)
 
 
 
@@ -144,8 +145,10 @@ EOF
 
 
 <a name="apt-cache-ng"> </a>  
-### II. Cài đặt APT-CACHE-NG
-#### Trên Server 
+### 2. Cài đặt APT-CACHE-NG
+
+<a name="apt-cache-ng-server"> </a> 
+#### 2.1. Trên Server 
 - Cài đặt apache
 ```sh
 apt-get -y install apache2

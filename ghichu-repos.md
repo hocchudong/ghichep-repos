@@ -1,12 +1,20 @@
 ﻿#### Các ghi chú trong khi setup repos
 
+### Mục lục
+* [I. Repos sử dụng APT-MIRROR] (#apt-mirror)
+
+* [II. Repos sử dụng APT-CACHE-NG] (#apt-cache-ng)
+
+
+
 #### Chú ý
 
 - Có 2 cách setup:
   - Setup sử dụng apt-mirror (download hết rất cả các package của Distro về)
   - Sử dụng apt-cache-ng (tải đến đâu thì download về đến đó)
-  
-#### Cài đặt apt-mirror
+
+<a name="apt-mirror"> </a>  
+#### I. Cài đặt apt-mirror
 
 - Cài Apache
 ```sh
@@ -134,7 +142,9 @@ EOF
 2. http://www.tecmint.com/setup-local-repositories-in-ubuntu/
 3. http://linoxide.com/ubuntu-how-to/setup-local-repository-ubuntu/
 
-### Cách 2: Cài đặt APT-CACHE-NG
+
+<a name="apt-cache-ng"> </a>  
+### II. Cài đặt APT-CACHE-NG
 #### Trên Server 
 - Cài đặt apache
 ```sh

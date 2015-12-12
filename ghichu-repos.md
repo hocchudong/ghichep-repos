@@ -102,7 +102,7 @@ ls /linoxide
 
 - Tạo liên kết từ thư mục chứa package tới thư mục vừa tạo ở trên
 ```sh
-sudo ln -s /linoxide/mirror/archive.ubuntu.com/ubuntu ubuntu
+sudo ln -s /linoxide/mirror/archive.ubuntu.com/ubuntu /var/www/html/ubuntu
 
 ```
 

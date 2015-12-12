@@ -53,7 +53,7 @@ clean http://archive.ubuntu.com/ubuntu
 EOF
 
 # Tao link toi thu muc chua repos
-sudo ln -s /vnptmirror/mirror/archive.ubuntu.com/ubuntu ubuntu
+sudo ln -s /vnptmirror/mirror/archive.ubuntu.com/ubuntu /var/www/html/ubuntu
 
 # Thiet lap crontab
 
